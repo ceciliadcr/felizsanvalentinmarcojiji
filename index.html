@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="icon" type="img/png" href="img/1. JPG.jpg">
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <title>unclick+</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #ff751f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Tahoma";
+      font-style: normal;
+      color: #FFA6E7;
+      cursor: pointer;
+      padding: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
+      padding: 24px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    p {
+      margin-top: 10px;
+      opacity: 0.6;
+      font-size: 0.8rem;
+    }
+    p {
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+  </style>
+</head>
+
+<body onclick="changeVibe()">
+  <div class="container">
+  <img id="vibeImage" src="img/1. JPG.jpg" alt="vibe image" />
+  <h1 id="phrase"> Mmmmmmmmmmmmmmmmmmmmmm FELIZ 14 DE FEBRERO  <3 </h1>
+</div>
+
+<audio id="music" loop>
+  <source src="jijijijij.mpeg" type="audio/mpeg">
+</audio>
+
+
+
+<script>
+  const music = document.getElementById("music");
+  const phrases = [
+    "Sos la personas mas increible, inteligente, talentosa y que no puede amarrarse los zapatos que conozco, te admiro muchisimo",
+    "Gracias por llegar a mi vida",
+    "Me encanta todo lo artistico que haces y gracias por compartirlo conmigo",
+    "Alguna vez te he dicho que me encanta tu pelo? (y vos)",
+    "Te quiero mucho",
+    "Amo cada aventura que hemos tenido juntos y las que nos faltan por vivir",
+    "Soy pesima para expresar lo que siento en palabras, pero espero que lo sientas y sepas que sos demasiado especial para mi",
+    "Hablar con vos, aunque sea a distancia, siempre se siente como que estamos a la par",
+    "Te extraño y me encanta ver todo lo que haces y que estas cumpliendo tus sueños",
+    "Fan por siempre y para siempre de vos <3",
+    "Te quiero muchoooooooooooooooooooooooo",
+    "mmmmmmmmmmmmmmmmmmmmmmmm feliz san valentin",
+    "De corazon espero siempre tengas tu sontrisa y corazon tan lindo",
+    "Me parece increible como no nos conocimos antes, pero me gusta pensar que fue el momento ideal",
+    "Me encanta tu forma de ser y como me hablas de los temas que te gustan",
+    "Si ves esto me debes un concierto en el parque",
+    "Amo hacer proyectos con vos y trabajar juntos",
+    "Me encanta hacer llamadas con vos y nuestras mini updates diarias",
+    "Estoy emocionada por ver tus cortos porque se que van a ser increibles",
+    "Te he dicho que me gustas?",
+    "Hola Marco jijijiji",
+    "jijijiji",
+    "De verdad que nunca he sido buena con palabras, pero espero sepas que lo intento y que te quiero muchisimo",
+    "abrazo",
+    "beso",
+    "<3",
+    "Me gusta como nos hacemos parte de la vida del otro a pesar de la distancia",
+    "Alguna vez has ido a cafe la guara?",
+
+  ];
+
+  const images = [
+    "img/1. JPG.jpg",
+    "img/2. jpeg.jpeg",
+    "img/3. jpeg.jpeg",
+    "img/5. jpeg.jpeg",
+    "img/6. jpeg.jpeg",
+    "img/7. jpeg.jpeg",
+    "img/8. jpeg.jpeg",
+    "img/9. jpeg.jpeg",
+    "img/10. jpeg.jpeg",
+    "img/11. jpeg.jpeg",
+    "img/12. jpeg.jpeg",
+    "img/13. jpeg.jpeg",
+    "img/14. jpeg.jpeg",
+    "img/15. jpeg.jpeg",
+    "img/16. jpeg.jpeg",
+    "img/17. jpeg.jpeg",
+    "img/18. jpeg.jpeg",
+    "img/19. jpeg.jpeg",
+    "img/20. jpeg.jpeg",
+    "img/21. jpeg.jpeg",
+    "img/22. jpeg.jpeg",  
+    "img/23. jpeg.jpeg",
+    "img/24. jpeg.jpeg",
+    "img/25. jpeg.jpeg",
+    "img/26. jpeg.jpeg",
+    "img/27. jpeg.jpeg",
+    "img/28. jpeg.jpeg",
+    "img/29. jpeg.jpeg",
+    "img/30. jpeg.jpeg",
+    "img/31. jpeg.jpeg",
+    "img/32. jpeg.jpeg",
+  ];
+
+  
+
+  const phraseEl = document.getElementById("phrase");
+  const imageEl = document.getElementById("vibeImage");
+  
+
+  // ESTADO INICIAL ESTÃ MOSTRANDO EL TEXTO
+  let showing = "text";
+  imageEl.style.display = "none";
+  let imageIndex = 0;
+let phraseIndex = 0;
+
+  function changeVibe() {
+    if (music.paused) {
+  music.play().catch(() => {});
+}
+       if (showing === "text") {
+      // ocultar el texto
+      phraseEl.style.display = "none";
+
+      // mostrar imagen
+      imageEl.src = images[Math.floor(Math.random() * images.length)];
+      imageEl.style.display = "block";
+
+      showing = "image";
+    } else {
+      // ocultar imagen
+      imageEl.style.display = "none";
+
+      // mostrar texto
+      phraseEl.textContent =
+        phrases[Math.floor(Math.random() * phrases.length)];
+      phraseEl.style.display = "block";
+
+      showing = "text";
+    }
+  }
+</script>
+
+</body>
+</html>
